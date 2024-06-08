@@ -7,4 +7,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  concern :bookmarktable do
+    resources :bookmarks, only: %i[index new create]
+  end
+
+  resources :lists, concerns: :bookmarktable
+
+  # resources :lists do
+  #   resources :bookmarks, only: %i[index new create]
+  # end
 end
