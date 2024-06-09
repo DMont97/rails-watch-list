@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :lists, concerns: :bookmarktable
+  resources :bookmarks, only: %i[destroy]
 
   # resources :lists do
   #   resources :bookmarks, only: %i[index new create]
